@@ -8,7 +8,11 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const handleClick = async () => {
+    const res = await fetch('/api/hello');
+    const data = await res.json();
+    console.log(data);
+  }
   return (
     <>
       <div>
@@ -21,6 +25,9 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
+        <button onClick={handleClick}>
+          Cloudflare Pages Function
+        </button>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
